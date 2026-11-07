@@ -21,8 +21,6 @@ java {
 }
 
 gradlePlugin {
-    pluginSourceSet project.sourceSets.main
-
     plugins {
         pterodactylPush {
             id = 'com.varnyra.pterodactylpush'
