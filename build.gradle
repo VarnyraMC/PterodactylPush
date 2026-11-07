@@ -1,7 +1,6 @@
 plugins {
     id 'java-gradle-plugin'
     id 'maven-publish'
-    id 'com.varnyra.pterodactylpush' version '1.0'
 }
 
 group = 'com.varnyra'
