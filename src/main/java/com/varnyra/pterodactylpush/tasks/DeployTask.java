@@ -12,6 +12,7 @@ import org.gradle.api.tasks.InputDirectory;
 import org.gradle.api.tasks.PathSensitive;
 import org.gradle.api.tasks.PathSensitivity;
 import org.gradle.api.tasks.TaskAction;
+import org.gradle.work.DisableCachingByDefault;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,6 +20,7 @@ import java.nio.file.Path;
 import java.util.Set;
 import java.util.TreeSet;
 
+@DisableCachingByDefault(because = "Deploys files to a remote Pterodactyl server")
 public abstract class DeployTask extends DefaultTask {
 
     @Input
