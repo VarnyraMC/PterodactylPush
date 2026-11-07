@@ -21,6 +21,8 @@ java {
 }
 
 gradlePlugin {
+    pluginSourceSet project.sourceSets.main
+
     plugins {
         pterodactylPush {
             id = 'com.varnyra.pterodactylpush'
@@ -32,6 +34,11 @@ gradlePlugin {
 }
 
 publishing {
+    publications {
+        pluginMaven(MavenPublication) {
+            artifactId = 'pterodactylpush' // Force lowercase artifact naming matching your route
+        }
+    }
     repositories {
         maven {
             name = "Reposilite"
@@ -40,6 +47,10 @@ publishing {
             credentials {
                 username = System.getenv("REPOSILITE_USERNAME")
                 password = System.getenv("REPOSILITE_TOKEN")
+            }
+
+            authentication {
+                basic(BasicAuthentication)
             }
         }
     }
