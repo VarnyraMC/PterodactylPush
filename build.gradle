@@ -1,0 +1,31 @@
+plugins {
+    id 'java-gradle-plugin'
+}
+
+group = 'com.varnyra'
+version = '1.1'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.18.2'
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+gradlePlugin {
+    plugins {
+        pterodactylPush {
+            id = 'com.varnyra.pterodactylpush'
+            implementationClass = 'com.varnyra.pterodactylpush.PterodactylPushPlugin'
+            displayName = 'Pterodactyl Push'
+            description = 'Deploy files to Pterodactyl servers directly from Gradle.'
+        }
+    }
+}
