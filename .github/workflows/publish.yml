@@ -16,6 +16,9 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v4
 
+      - name: Grant Execute Permission to Gradlew
+        run: chmod +x gradlew
+
       - name: Set up JDK 17
         uses: actions/setup-java@v4
         with:
