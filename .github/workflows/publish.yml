@@ -36,7 +36,7 @@ jobs:
       - name: Publish to Reposilite
         run: ./gradlew publish
         env:
-          REPOSILITE_USERNAME: ${{ vars.REPOSILITE_USERNAME }}
+          REPOSILITE_USERNAME: ${{ secrets.REPOSILITE_USERNAME }}
           REPOSILITE_TOKEN: ${{ secrets.REPOSILITE_TOKEN }}
 
       # 3. Bundles the built JAR files directly into a native GitHub Release
