@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'com.varnyra'
-version = '1.1'
+version = '1.0'
 
 repositories {
     mavenCentral()
@@ -26,6 +26,20 @@ gradlePlugin {
             implementationClass = 'com.varnyra.pterodactylpush.PterodactylPushPlugin'
             displayName = 'Pterodactyl Push'
             description = 'Deploy files to Pterodactyl servers directly from Gradle.'
+        }
+    }
+}
+
+publishing {
+    repositories {
+        maven {
+            name = "Reposilite"
+            url = "https://maven.varnyra.com"
+
+            credentials {
+                username = System.getenv("REPOSILITE_USERNAME")
+                password = System.getenv("REPOSILITE_TOKEN")
+            }
         }
     }
 }
